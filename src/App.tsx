@@ -1,7 +1,6 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { HomePage } from './pages/HomePage';
-import { ModelLayout } from './components/ModelLayout';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HomePage } from "./pages/HomePage";
+import { ModelLayout } from "./components/ModelLayout";
 
 function App() {
   return (

@@ -1,13 +1,21 @@
-import React from "react";
-import { useParams, Navigate } from "react-router-dom";
-import { anatomyModels } from "../types/model";
+import { useParams, Navigate, Link } from "react-router-dom";
+import { useModels } from "../contexts/ModelsContext";
 import { ModelViewer } from "./ModelViewer";
 import { ArrowLeft, Tag } from "lucide-react";
-import { Link } from "react-router-dom";
 
 export function ModelLayout() {
-  const { modelId } = useParams();
-  const model = anatomyModels.find((m) => m.id === modelId);
+  const { modelId } = useParams<{ modelId: string }>();
+  const { models, loading, error } = useModels();
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  const model = models?.find((m) => m.id === modelId);
 
   if (!model) {
     return <Navigate to="/" replace />;
@@ -54,7 +62,6 @@ export function ModelLayout() {
                     {model.category}
                   </dd>
                 </div>
-                {/* Add more model details as needed */}
               </dl>
             </div>
           </div>
