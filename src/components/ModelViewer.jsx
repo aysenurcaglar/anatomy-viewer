@@ -3,16 +3,12 @@ import { Canvas } from "@react-three/fiber";
 import { useGLTF, Stage, OrbitControls } from "@react-three/drei";
 import { Loader } from "lucide-react";
 
-interface ModelViewerProps {
-  modelUrl: string;
-}
-
-function Model({ url }: { url: string }) {
+function Model({ url }) {
   const { scene } = useGLTF(url);
   return <primitive object={scene} />;
 }
 
-export function ModelViewer({ modelUrl }: ModelViewerProps) {
+export function ModelViewer({ modelUrl }) {
   const [hovered, setHovered] = useState(false);
 
   return (

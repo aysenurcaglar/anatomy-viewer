@@ -1,12 +1,8 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { AnatomyModel, useModels } from "../contexts/ModelsContext";
+import { useModels } from "../contexts/ModelsContext";
 
-interface ModelCardProps {
-  model: AnatomyModel;
-}
-
-export function ModelCard({ model }: ModelCardProps) {
+export function ModelCard({ model }) {
   const { setSelectedModel } = useModels();
 
   const handleClick = () => {

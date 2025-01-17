@@ -1,10 +1,10 @@
 import { useParams, Navigate, Link } from "react-router-dom";
 import { useModels } from "../contexts/ModelsContext";
-import { ModelViewer } from "./ModelViewer";
+import { ModelViewer } from "../components/ModelViewer";
 import { ArrowLeft, Tag } from "lucide-react";
 
 export function ModelLayout() {
-  const { modelId } = useParams<{ modelId: string }>();
+  const { modelId } = useParams();
   const { models, loading, error } = useModels();
 
   if (loading) {
